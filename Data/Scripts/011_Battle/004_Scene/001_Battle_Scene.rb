@@ -12,11 +12,11 @@ class Battle::Scene
   # The number of party balls to show in each side's lineup.
   NUM_BALLS            = Settings::MAX_PARTY_SIZE
   # Centre bottom of the player's side base graphic
-  PLAYER_BASE_X        = 128
+  PLAYER_BASE_X        = 128 ## cloud_ocean 128 (178?)
   PLAYER_BASE_Y        = Settings::SCREEN_HEIGHT - 80
   # Centre middle of the foe's side base graphic
-  FOE_BASE_X           = Settings::SCREEN_WIDTH - 128
-  FOE_BASE_Y           = (Settings::SCREEN_HEIGHT * 3 / 4) - 112
+  FOE_BASE_X           = Settings::SCREEN_WIDTH - 176 ## cloud_ocean 128
+  FOE_BASE_Y           = (Settings::SCREEN_HEIGHT * 3 / 4) - 140 ## cloud_ocean 112
   # Default focal points of user and target in animations - do not change!
   # Is the centre middle of each sprite
   FOCUSUSER_X          = 128

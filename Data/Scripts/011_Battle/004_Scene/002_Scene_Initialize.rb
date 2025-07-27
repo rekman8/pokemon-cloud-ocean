@@ -167,6 +167,7 @@ class Battle::Scene
     end
     trainer.ox = trainer.src_rect.width / 2
     trainer.oy = trainer.bitmap.height
+    # trainer.y += 96 ## cloud_ocean
   end
 
   def pbCreateTrainerFrontSprite(idxTrainer, trainerType, numTrainers = 1)

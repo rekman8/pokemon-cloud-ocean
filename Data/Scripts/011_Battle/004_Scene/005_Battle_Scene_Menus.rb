@@ -263,8 +263,8 @@ class Battle::Scene::FightMenu < Battle::Scene::MenuBase
       # Create type icon
       @typeIcon = Sprite.new(viewport)
       @typeIcon.bitmap = @typeBitmap.bitmap
-      @typeIcon.x      = self.x + 416
-      @typeIcon.y      = self.y + 20
+      @typeIcon.x      = self.x + 550 ## cloud_ocean 416
+      @typeIcon.y      = self.y + 10 ## cloud_ocean 20
       @typeIcon.src_rect.height = TYPE_ICON_HEIGHT
       addSprite("typeIcon", @typeIcon)
       # Create Mega Evolution button
@@ -283,7 +283,7 @@ class Battle::Scene::FightMenu < Battle::Scene::MenuBase
     else
       # Create message box (shows type and PP of selected move)
       @msgBox = Window_AdvancedTextPokemon.newWithSize(
-        "", self.x + 320, self.y, Graphics.width - 320, Graphics.height - self.y, viewport
+        "", self.x + 520, self.y, Graphics.width - 320, Graphics.height - self.y, viewport ## cloud_ocean # "", self.x + 320, self.y, Graphics.width - 320, Graphics.height - self.y, viewport
       )
       @msgBox.baseColor   = TEXT_BASE_COLOR
       @msgBox.shadowColor = TEXT_SHADOW_COLOR
@@ -291,7 +291,7 @@ class Battle::Scene::FightMenu < Battle::Scene::MenuBase
       addSprite("msgBox", @msgBox)
       # Create command window (shows moves)
       @cmdWindow = Window_CommandPokemon.newWithSize(
-        [], self.x, self.y, 320, Graphics.height - self.y, viewport
+        [], self.x, self.y, 520, Graphics.height - self.y, viewport ## cloud_ocean # [], self.x, self.y, 320, Graphics.height - self.y, viewport
       )
       @cmdWindow.columns       = 2
       @cmdWindow.columnSpacing = 4
@@ -403,12 +403,14 @@ class Battle::Scene::FightMenu < Battle::Scene::MenuBase
     # Type icon
     type_number = GameData::Type.get(move.display_type(@battler)).icon_position
     @typeIcon.src_rect.y = type_number * TYPE_ICON_HEIGHT
+    @typeIcon.x = 526 ## cloud_ocean 
+    @typeIcon.y = 400 ## cloud_ocean 
     # PP text
     if move.total_pp > 0
       ppFraction = [(4.0 * move.pp / move.total_pp).ceil, 3].min
       textPos = []
       textPos.push([_INTL("PP: {1}/{2}", move.pp, move.total_pp),
-                    448, 56, :center, PP_COLORS[ppFraction * 2], PP_COLORS[(ppFraction * 2) + 1]])
+                    448+110, 56, :center, PP_COLORS[ppFraction * 2], PP_COLORS[(ppFraction * 2) + 1]])## cloud_ocean 448
       pbDrawTextPositions(@infoOverlay.bitmap, textPos)
     end
   end
